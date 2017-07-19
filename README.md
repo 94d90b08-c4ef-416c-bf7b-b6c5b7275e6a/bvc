@@ -21,6 +21,7 @@ Main puprose is to use LVM thin pool abstraction to realize version control for 
 to find out exact changes, so
 - you can't merge two state
 - you can't figure out sufficient diference between two commits
+
 **Possible diff workarounds**:  
 - use block-level: provide us block-level diff and ability to merge them  
 - use file-level diff: provide more sufficient changes, requires much overhead during work (as docker do it)  
