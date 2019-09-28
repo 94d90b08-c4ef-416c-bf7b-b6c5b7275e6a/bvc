@@ -3,7 +3,7 @@
 > Если у тебя возникла умная мысль - запиши её.  
 > Так она становится яснее, а глупость, заключенная в ней - очевиднее.  
 
-Main puprose is to use LVM thin pool abstraction to realize version control for huge binary data that need to be under VCS, but most of it useless.  
+Main puprose is to use LVM thin pool abstraction to realize version control for huge binary data that need to be under VCS, but most of them are useless.  
 ## It should let U to:
 - **initialize** repository within LVM VG  
 - **commit** changes on device  
@@ -29,3 +29,12 @@ to find out exact changes, so
 ## think of
 - low level FS (xfs? btrfs?) tuning  
 - use dm directly (realize thin pool by bare hands)  
+
+## Underware
+
+### Env
+- ruby 2.3.3
+- Fedora 25
+- bash 4.3.43
+- LVM 2.02.167
+
