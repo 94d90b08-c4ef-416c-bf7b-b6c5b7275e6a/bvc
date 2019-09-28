@@ -1,16 +1,16 @@
-//#include "lvm.h"
+#include "../include/lvmcore.h"
+#include <iostream>
+#include <filesystem>
+#include <fstream>
 
+#define FILE_NAME "TEST.bvc"
 
-// int main(void){
-//     std::string path_to_sparse_file("TEST.SPARSE");
-//     try {
-//         int fd = create_sparse_file(path_to_sparse_file, 1024);
-//         std::cout << "File descriptor made: " << fd << std::endl;
-//     }
-//     catch (char const* s) {
-//         std::cout << "Exception caught: " << s << std::endl;
-//     }
-        
-    
-//     //return unlink(path_to_sparse_file.c_str());   return 0;
-// }
+int main(void) {
+
+   try {
+       SparseFile new_sparse_file(FILE_NAME, 1024*1024);
+   } catch (LVMCoreException& exc) {
+       std::cout << exc.what() << std::endl;
+   }
+
+}

@@ -9,9 +9,9 @@ int main()
     std::cout << path << "\n";
     std::filesystem::create_directories(path.parent_path()); //add directories based on the object path (without this line it will not work)
 
-    /*std::ofstream ofs(path);
+    std::ofstream ofs(path);
     ofs << "this is some text in the new file\n"; 
-    ofs.close();*/
+    ofs.close();
     std::filesystem::resize_file(path, 10244);
 
     return 0;

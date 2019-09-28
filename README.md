@@ -3,6 +3,11 @@
 > Если у тебя возникла умная мысль - запиши её.  
 > Так она становится яснее, а глупость, заключенная в ней - очевиднее.  
 
+## LVMCore
+Req: lvm2-devel
+https://fedoraproject.org/wiki/LVM/liblvm
+https://github.com/malachheb/liblvm/blob/master/ext/liblvm.c 
+
 Main puprose is to use LVM thin pool abstraction to realize version control for huge binary data that need to be under VCS, but most of them are useless.  
 ## It should let U to:
 - **initialize** repository within LVM VG  
