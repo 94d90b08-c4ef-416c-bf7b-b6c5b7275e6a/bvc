@@ -47,6 +47,11 @@ public:
         }
     }
 
+    std::string get_name() {
+        return file_path;
+    }
+
+
 private:
 
     void set_size(bool _allow_shrink) {
