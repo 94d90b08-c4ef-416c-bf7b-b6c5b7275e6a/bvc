@@ -8,8 +8,8 @@ private:
     std::map<std::string, docopt::value> parsed_args;
 private:
     void parse_args() {
-      for(auto const& arg : parsed_args) {
-        std::cout << arg.first <<  " " << arg.second << std::endl;
+      for(const auto &[key, values] : parsed_args) {
+        std::cout << key <<  " " << values << std::endl;
     	}
     }
 
