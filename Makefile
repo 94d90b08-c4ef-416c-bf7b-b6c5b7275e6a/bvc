@@ -6,7 +6,7 @@ CPPFLAGS=-std=c++17
 EXECUTABLE=test
 
 test:
-	$(CC) $(CPPFLAGS) -o $(BUILD_DIR)/$(EXECUTABLE) $(SRC_DIR)/main.cpp
+	g++ -o cli src/cli.cpp -L../../libs/usr/local/lib64/ -I../../libs/usr/local/include/docopt/ -ldocopt
+	export LD_LIBRARY_PATH=/home/alise/libs/usr/local/lib64/
 clean:
-	rm -f $(BUILD_DIR)/test
-#	rm -f TEST.SPARSE
+	rm cli
