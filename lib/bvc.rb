@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'devdriver'
+require_relative 'blockdevdriver'
 
 class BVCRepo
   # Binary Version control repoistory objects

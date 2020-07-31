@@ -3,3 +3,4 @@ test
 TEST.SPARSE
 .exe
 build/
+Gemfile.lock

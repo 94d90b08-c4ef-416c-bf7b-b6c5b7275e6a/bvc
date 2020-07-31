@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'json'
+#require 'losetup'
 
 module BlockDevDriver
 
@@ -9,22 +10,24 @@ module BlockDevDriver
     attr_reader :requested_size
     attr_reader :file_name
 
-    @requested_size = 512 * 1024 * 1024
-    @file_name = nil
-
-    def initialize file, size=nil
+    def initialize file, size=512*1024*1024
       current_size = File.size? file
-      if current_size
-        raise NotEnoughFileSize if current_size < size
-      else
-        # Create a file
-        `sudo truncate -s #{size} #{file}`
-      end
+      @requested_size = size
       @file_name = file
-      @requested_size = size if size
+      if current_size.nil?
+        File.open(@file_name, 'w') do |f|
+          f.truncate(@requested_size)
+        end
+      elsif current_size < @requested_size
+        raise NotEnoughFileSize
+      elsif current_size > @requested_size
+        p "File #{@file_name} is bigger than expected, ignoring"
+      end
     end
 
     def enable
+#      ld = Losetup::LoopDevice.new
+#      ld.create @file_name
       `sudo losetup -f #{@file_name}`
       lo_dev_info = JSON.parse `sudo losetup -JO NAME -j #{@file_name}`
       lo_dev_name = lo_dev_info['loopdevices'].first['name']

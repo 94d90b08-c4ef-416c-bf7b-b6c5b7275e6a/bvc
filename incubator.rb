@@ -28,7 +28,7 @@ require 'lib/bvc'
 
 # p config
 
-repo = BVCRepo.new 'TEST.bvc'
+repo = BVCRepo.new 'test.bvc'
 repo.enable
 
 #repo.info
