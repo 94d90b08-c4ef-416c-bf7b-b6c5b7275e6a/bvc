@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 require 'json'
-#require 'losetup'
+# require 'losetup'
 
 module BlockDevDriver
-
   class LoopSparseFile
-
+    # Underlying block device represented by a file mounted as a loop device
     attr_reader :requested_size
     attr_reader :file_name
 
@@ -25,7 +24,7 @@ module BlockDevDriver
       end
     end
 
-    def enable
+    def enable!
 #      ld = Losetup::LoopDevice.new
 #      ld.create @file_name
       `sudo losetup -f #{@file_name}`
@@ -35,7 +34,7 @@ module BlockDevDriver
       `sudo losetup --detach #{lo_dev_name}`
     end
 
-    def destroy
+    def destroy!
       File.delete @file_name
     end
 
